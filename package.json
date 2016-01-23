@@ -1,0 +1,22 @@
+{
+  "name": "cucumber_practice",
+  "version": "1.0.0",
+  "description": "My math game, but with cucumber!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhb563/cucumberPractice.git"
+  },
+  "author": "James Bowen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhb563/cucumberPractice/issues"
+  },
+  "homepage": "https://github.com/jhb563/cucumberPractice#readme",
+  "devDependencies": {
+    "cucumber": "^0.9.2"
+  }
+}
