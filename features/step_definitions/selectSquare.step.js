@@ -6,7 +6,6 @@ var MathGame = require(process.cwd() + '/client/model/math-game');
 module.exports = function () {
 
 	var board;
-	var succeeded;
 
 	this.Given(/^There is a board with (.*) rows and (.*) columns$/, function(rows, cols, callback) {
 		board = MathGame.create(rows, cols);
@@ -19,17 +18,7 @@ module.exports = function () {
 	});
 
 	this.When(/^I select a square at row (.*) and column (.*)$/, function(row, col, callback) {
-		succeeded = board.select(row, col);
-		callback();
-	});
-
-	this.Then(/^the game accepts the move$/, function (callback) {
-		assert(succeeded);
-		callback();
-	});
-
-	this.Then(/^the game rejects the move$/, function (callback) {
-		assert(!succeeded);
+		board.select(row, col);
 		callback();
 	});
 
