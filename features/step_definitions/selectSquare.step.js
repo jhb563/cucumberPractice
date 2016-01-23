@@ -30,8 +30,6 @@ module.exports = function () {
 	this.Then(/^The first selected square is at (\d+) (\d+)$/, function (row, col, callback) {
 		assert(board.selectedSquares.length > 0);
 		var firstSquare = board.selectedSquares[0];
-		console.log(firstSquare.row);
-		console.log(firstSquare.col);
 		assert(firstSquare.row == row);
 		assert(firstSquare.col == col);
 		callback();
