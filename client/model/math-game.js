@@ -1,8 +1,8 @@
 'use strict';
 
 function MathGame(rows, cols) {
-	this.numRows = rows;
-	this.numCols = cols;
+	this.numRows = Number(rows);
+	this.numCols = Number(cols);
 	this.selectedSquares = [];
 	this.correctSquares = [];
 	this.incorrectSquares = [];
@@ -37,11 +37,17 @@ MathGame.prototype.select = function(row, col) {
 			this.correctSquares = [];
 			this.incorrectSquares = [];
 			this.selectedSquares = resultingList;
+		} else if (resultingList.length == 0) {
+			this.correctSquares = [];
+			this.incorrectSquares = [];
+			this.selectedSquares = [];
 		}
 	}
 	return;
 };
-
+// If the squares are the same, return an empty list, signifying there should be no
+// selection
+//
 // If the squares are not adjacent, returns a list containing just square2, signifying
 // that square2 will be the only selected square. 
 //
@@ -57,7 +63,7 @@ MathGame.prototype.squareListAfterTwoSelections = function(square1, square2) {
 	var square3;
 	if (row1 == row2) {
 		if (col1 == col2) {
-			return [square2];
+			return [];
 		} else if (col1 == col2 + 1) {
 			square3 = {row: row1, col: col1 - 2};
 		} else if (col1 == col2 - 1) {

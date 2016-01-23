@@ -6,7 +6,7 @@ Feature: Select second adjacent square
 	Scenario Outline: Selecting Adjacent Square with Third Square in line
 		Given There is a board with <rows> rows and <cols> columns
 		And The board has a previous selection at row <firstRow> column <firstCol>
-		When I select a square at row <row> and column <col>
+		When I select a square at row <row> column <col>
 		Then The game forms a line of three squares with square one at <firstRow>, <firstCol>, square two at <row>, <col> and square three at <thirdRow>, <thirdCol>
 		And The game has 0 selected squares
 
@@ -25,11 +25,19 @@ Feature: Select second adjacent square
 	Scenario Outline: Selecting Adjacent Square with no Third Square (end of the board)
 		Given There is a board with <rows> rows and <cols> columns
 		And The board has a previous selection at row <firstRow> column <firstCol>
-		When I select a square at row <row> and column <col>
+		When I select a square at row <row> column <col>
 		Then The game does not form a line
 		And The game has 0 selected squares
 
 		Examples:
 			| rows | cols | firstRow | firstCol | row | col |
 			|  9   |  9   |    7     |    7     |  8  |  8  |
+			|  9   |  9   |    7     |    7     |  7  |  8  |
+			|  9   |  9   |    7     |    7     |  8  |  7  |
+			|  9   |  9   |    1     |    7     |  0  |  7  |
+			|  9   |  9   |    1     |    7     |  0  |  8  |
+			|  9   |  9   |    1     |    7     |  1  |  8  |
+			|  9   |  9   |    1     |    1     |  0  |  0  |
+			|  9   |  9   |    1     |    1     |  1  |  0  |
+
 

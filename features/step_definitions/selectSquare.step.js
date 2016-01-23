@@ -17,7 +17,7 @@ module.exports = function () {
 		callback();
 	});
 
-	this.When(/^I select a square at row (.*) and column (.*)$/, function(row, col, callback) {
+	this.When(/^I select a square at row (\-?\d+) column (\-?\d+)$/, function(row, col, callback) {
 		board.select(row, col);
 		callback();
 	});
@@ -35,7 +35,7 @@ module.exports = function () {
 		callback();
 	});
 	
-	this.Given(/^The board has a previous selection at row (.*) column (.*)$/, function (firstRow, firstCol, callback) {
+	this.Given(/^The board has a previous selection at row (\d+) column (\d+)$/, function (firstRow, firstCol, callback) {
 		board.select(firstRow, firstCol);
 		callback();
 	});

@@ -5,8 +5,8 @@ Feature: Select second non-adjacent square
 
 	Scenario Outline: Selecting a second square, not adjacent to the first.
 		Given There is a board with <rows> rows and <cols> columns
-		And The board has a previous selection at row <firstRow> and column <firstCol>
-		When I select a square at row <row> and column <col>
+		And The board has a previous selection at row <firstRow> column <firstCol>
+		When I select a square at row <row> column <col>
 		Then The game has 1 selected square
 		And The first selected square is at <row> <col>
 

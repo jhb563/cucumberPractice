@@ -5,7 +5,7 @@ Feature: Player selects their first square
 
 	Scenario Outline: Selecting In Bounds Squares
 		Given There is a board with <rows> rows and <cols> columns and no selections
-		When I select a square at row <row> and column <col>
+		When I select a square at row <row> column <col>
 		Then The game has 1 selected square
 		And The first selected square is at <row> <col>
 
@@ -19,7 +19,7 @@ Feature: Player selects their first square
 
 	Scenario Outline: Select Out of Bounds Squares
 		Given There is a board with <rows> rows and <cols> columns and no selections
-		When I select a square at row <row> and column <col>
+		When I select a square at row <row> column <col>
 		Then The game has 0 selected squares
 
 		Examples:
