@@ -12,6 +12,14 @@ module.exports = function () {
 		callback();
 	});
 
+	this.Then(/^The game's numbers grid should have (\d+) rows and (\d+) cols$/, function(rows, cols, callback) {
+		assert(board.numbers.length == rows);
+		for (var i = 0; i < board.numbers.length; i += 1) {
+			assert(board.numbers[i].length == cols);
+		}
+		callback();
+	});
+
 	this.Given(/^There is a board with (.*) rows and (.*) columns and no selections$/, function (rows, cols, callback) {
 		board = MathGame.create(rows, cols);
 		callback();
@@ -57,6 +65,14 @@ module.exports = function () {
 
 	this.Then(/^The game does not form a line$/, function (callback) {
 		assert(board.correctSquares.length == 0);
+		callback();
+	});
+	
+	this.Then(/^The board's selected numbers are at squares \((\d+), (\d+)\), \((\d+), (\d+)\), and \((\d+), (\d+)\)$/, function(firstRow, firstCol, secondRow, secondCol, thirdRow, thirdCol, callback) {
+		assert(board.selectedNumbers.length == 3);
+		assert(board.selectedNumbers[0] == board.numbers[firstRow][firstCol]);
+		assert(board.selectedNumbers[1] == board.numbers[secondRow][secondCol]);
+		assert(board.selectedNumbers[2] == board.numbers[thirdRow][thirdCol]);
 		callback();
 	});
 };
