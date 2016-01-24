@@ -12,6 +12,14 @@ module.exports = function () {
 		callback();
 	});
 
+	this.Then(/^The game's numbers grid should have (\d+) rows and (\d+) cols$/, function(rows, cols, callback) {
+		assert(board.numbers.length == rows);
+		for (var i = 0; i < board.numbers.length; i += 1) {
+			assert(board.numbers[i].length == cols);
+		}
+		callback();
+	});
+
 	this.Given(/^There is a board with (.*) rows and (.*) columns and no selections$/, function (rows, cols, callback) {
 		board = MathGame.create(rows, cols);
 		callback();
