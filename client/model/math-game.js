@@ -6,6 +6,20 @@ function MathGame(rows, cols) {
 	this.selectedSquares = [];
 	this.correctSquares = [];
 	this.incorrectSquares = [];
+	this.selectedNumbers = [];
+	this.numbers = this.generateGrid(rows,cols);
+};
+
+MathGame.prototype.generateGrid = function(rows, cols) {
+	var numbers = [];
+	for (var i = 0; i < rows; i += 1) {
+		var newRow = [];
+		for (var j = 0; j < cols; j += 1) {
+			newRow.push(Math.floor(Math.random() * 9) + 1);
+		}
+		numbers.push(newRow);
+	}
+	return numbers;
 };
 
 MathGame.prototype.isValidSquare = function(square) {
@@ -29,18 +43,26 @@ MathGame.prototype.select = function(row, col) {
 			this.correctSquares = resultingList;
 			this.incorrectSquares = [];
 			this.selectedSquares = [];
+			var square3 = resultingList[2];
+			var num1 = this.numbers[square1.row][square1.col];
+			var num2 = this.numbers[newSquare.row][newSquare.col];
+			var num3 = this.numbers[square3.row][square3.col];
+			this.selectedNumbers = [num1, num2, num3];
 		} else if (resultingList.length == 2) {
 			this.correctSquares = [];
 			this.incorrectSquares = resultingList;
 			this.selectedSquares = [];
+			this.selectedNumbers = [];
 		} else if (resultingList.length == 1) {
 			this.correctSquares = [];
 			this.incorrectSquares = [];
 			this.selectedSquares = resultingList;
+			this.selectedNumbers = [];
 		} else if (resultingList.length == 0) {
 			this.correctSquares = [];
 			this.incorrectSquares = [];
 			this.selectedSquares = [];
+			this.selectedNumbers = [];
 		}
 	}
 	return;

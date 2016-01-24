@@ -59,4 +59,12 @@ module.exports = function () {
 		assert(board.correctSquares.length == 0);
 		callback();
 	});
+	
+	this.Then(/^The board's selected numbers are at squares \((\d+), (\d+)\), \((\d+), (\d+)\), and \((\d+), (\d+)\)$/, function(firstRow, firstCol, secondRow, secondCol, thirdRow, thirdCol, callback) {
+		assert(board.selectedNumbers.length == 3);
+		assert(board.selectedNumbers[0] == board.numbers[firstRow][firstCol]);
+		assert(board.selectedNumbers[1] == board.numbers[secondRow][secondCol]);
+		assert(board.selectedNumbers[2] == board.numbers[thirdRow][thirdCol]);
+		callback();
+	});
 };
